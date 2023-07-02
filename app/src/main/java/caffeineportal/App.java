@@ -10,5 +10,7 @@ public class App {
     public static void main(String[] args) {
         System.out.println("CaffeinePortal Main Application system out~");
         FastLogger.logStatic(LogLevel.DEBUG, "CaffeinePortal Main Application checking in with the CasterLabs side~");
+
+        // should have just came from caffein onInit
     }
 }

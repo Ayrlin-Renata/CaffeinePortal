@@ -8,6 +8,8 @@ public class Caffein extends CaffeinatedPlugin {
     @Override
     public void onInit() {
         this.getLogger().debug("CaffeinePortal CasterLabs side onInit()");
+        // this is the actual entrypoint, gonna have to spin up app and porta from here.
+        App.main(new String[0]);
     }
 
     @Override

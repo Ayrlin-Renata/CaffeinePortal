@@ -12,7 +12,7 @@ plugins {
     application
 
     //TP
-    id("com.christophecvb.touchportal.plugin-packager") version "8.3.0"
+    id("com.christophecvb.touchportal.plugin-packager") version "9.0.0-1671554717"
     //TP dependencies
     kotlin("jvm") version "1.9.0-RC"
     kotlin("kapt") version "1.9.0-RC"
@@ -40,6 +40,9 @@ repositories {
 
     //jitpack for git
     maven(url = "https://jitpack.io")
+
+    //TP snapshot for 9.0.0
+    maven(url = "https://s01.oss.sonatype.org/content/repositories/snapshots/")
 }
 
 dependencies {
@@ -53,8 +56,8 @@ dependencies {
     implementation("co.casterlabs.Casterlabs:PluginSDK:8383849")
 
     //TP
-    implementation("com.christophecvb.touchportal:plugin-sdk:8.3.0")
-    annotationProcessor("com.christophecvb.touchportal:plugin-sdk-annotations-processor:8.3.0")
+    implementation("com.christophecvb.touchportal:plugin-sdk:9.0.0-SNAPSHOT")
+    annotationProcessor("com.christophecvb.touchportal:plugin-sdk-annotations-processor:9.0.0-SNAPSHOT")
     //TP dependency
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     //implementation("com.christophecvb.touchportal.plugin-packager:Library:8.2.1") //not found!!

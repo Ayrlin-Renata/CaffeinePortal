@@ -4,7 +4,7 @@ import kotlin.Long
 import kotlin.String
 
 internal object BuildConfig {
-  internal const val NAME: String = "app"
+  internal const val NAME: String = "CaffeinePortal"
 
   internal const val VERSION_NAME: String = "1.0.0"
 

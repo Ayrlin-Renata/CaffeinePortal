@@ -14,6 +14,11 @@ public class Porta extends TouchPortalPlugin implements TouchPortalPlugin.TouchP
 
     private final static Logger LOGGER = Logger.getLogger(TouchPortalPlugin.class.getName());
 
+    private enum Categories {
+        @Category(name = "CaffeinePortal Base Category", imagePath = "")
+        BaseCategory
+    }
+
     @State(defaultValue = "1", categoryId = "BaseCategory")
     private String newFollower;
     @State(defaultValue = "1", categoryId = "BaseCategory")
@@ -62,7 +67,7 @@ public class Porta extends TouchPortalPlugin implements TouchPortalPlugin.TouchP
     }
 
     @Override
-    public void onListChanged(TPListChangeMessage tpListChangeMessage) {
+    public void onListChanged(TPListChangedMessage tpListChangeMessage) { // TPListChangeMessage for pre-9.0.0
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'onListChanged'");
     }
