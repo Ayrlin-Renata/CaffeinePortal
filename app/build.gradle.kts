@@ -4,6 +4,8 @@
  * This generated file contains a sample Java application project to get you started.
  * For more details on building Java & JVM projects, please refer to https://docs.gradle.org/8.2/userguide/building_java_projects.html in the Gradle documentation.
  */
+import org.gradle.api.tasks.Copy
+import org.gradle.api.file.DuplicatesStrategy
 
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
@@ -18,7 +20,7 @@ plugins {
     id("com.github.gmazzo.buildconfig") version "4.1.1"
 }
 
-group "caffeineportal"
+//group "caffeineportal"
 tpPlugin.mainClassSimpleName = "Porta"
 
 buildConfig {
@@ -27,7 +29,7 @@ buildConfig {
 
     useKotlinOutput()
 
-    buildConfigField("String", "NAME", "\"${project.name}\"")
+    buildConfigField("String", "NAME", "\"CaffeinePortal\"")
     buildConfigField("String", "VERSION_NAME", "\"1.0.0\"")
     buildConfigField("long", "VERSION_CODE", "1")
 }
@@ -73,6 +75,10 @@ application {
 
 tasks.named("jar") {
     enabled = false
+}
+
+tasks.named<Copy>("copyJar") {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
 
 tasks.create("fatJar", Jar::class) {

@@ -1,18 +1,46 @@
 package caffeineportal;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import com.christophecvb.touchportal.TouchPortalPlugin;
-import com.christophecvb.touchportal.model.TPBroadcastMessage;
-import com.christophecvb.touchportal.model.TPInfoMessage;
-import com.christophecvb.touchportal.model.TPListChangeMessage;
-import com.christophecvb.touchportal.model.TPNotificationOptionClickedMessage;
-import com.christophecvb.touchportal.model.TPSettingsMessage;
+import com.christophecvb.touchportal.annotations.*;
+import com.christophecvb.touchportal.helpers.PluginHelper;
+import com.christophecvb.touchportal.model.*;
 import com.google.gson.JsonObject;
 
+@Plugin(version = BuildConfig.VERSION_CODE, colorDark = "#203060", colorLight = "#4070F0", name = "CaffeinePortal")
 public class Porta extends TouchPortalPlugin implements TouchPortalPlugin.TouchPortalPluginListener {
+
+    private final static Logger LOGGER = Logger.getLogger(TouchPortalPlugin.class.getName());
+
+    @State(defaultValue = "1", categoryId = "BaseCategory")
+    private String newFollower;
+    @State(defaultValue = "1", categoryId = "BaseCategory")
+    private String newSubscriber;
+    @State(defaultValue = "1", categoryId = "BaseCategory")
+    private String newRaid;
 
     protected Porta(boolean parallelizeActions) {
         super(parallelizeActions);
         // TODO Auto-generated constructor stub
+    }
+
+    public Porta() {
+        super(true);// true is for paralleling Actions executions
+    }
+
+    public static void main(String... args) {
+        Porta.LOGGER.log(Level.INFO, "CaffeinePortal TouchPortal side main()");
+        if (args != null && args.length == 1) {
+            if (PluginHelper.COMMAND_START.equals(args[0])) {
+                // Initialize your Plugin
+                Porta myTouchPortalPlugin = new Porta();
+                // Initiate the connection with the Touch Portal Plugin System (will trigger an
+                // onInfo message with a confirmation from TouchPortal and the initial settings)
+                boolean connectedPairedAndListening = myTouchPortalPlugin.connectThenPairAndListen(myTouchPortalPlugin);
+            }
+        }
     }
 
     @Override
