@@ -12,5 +12,10 @@ public class App {
         FastLogger.logStatic(LogLevel.DEBUG, "CaffeinePortal Main Application checking in with the CasterLabs side~");
 
         // should have just came from caffein onInit
+        Porta.start("start");
+
+        // TODO refactor com.ayrlin.caffeineportal
+        // TODO sort out mains
+        // TODO figure out jarring reqs.
     }
 }

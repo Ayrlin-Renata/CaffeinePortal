@@ -12,26 +12,36 @@ plugins {
     application
 
     //TP
-    id("com.christophecvb.touchportal.plugin-packager") version "9.0.0-1671554717"
+    id("com.christophecvb.touchportal.plugin-packager") version "9.0.0+"
     //TP dependencies
-    kotlin("jvm") version "1.9.0-RC"
-    kotlin("kapt") version "1.9.0-RC"
+    //kotlin("jvm") version "1.9.0-RC"
+    //kotlin("kapt") version "1.9.0-RC"
     id("java")
-    id("com.github.gmazzo.buildconfig") version "4.1.1"
+    id("com.github.gmazzo.buildconfig") version "3.1.0"
 }
 
-//group "caffeineportal"
-tpPlugin.mainClassSimpleName = "Porta"
+val versionMajor = 1
+val versionMinor = 0
+val versionPatch = 0
+
+//val mainClassSimpleName = "Porta"
+val mainClassPackage = "caffeineportal"
+
+group = mainClassPackage
+//tpPlugin.mainClassSimpleName = mainClassSimpleName
+tpPlugin.mainClassSimpleName.set("Porta")
+
 
 buildConfig {
-    //println(packageName)
-    packageName = "caffeineportal"
+    //packageName = "${project.group}"
+    packageName("caffeineportal")
 
-    useKotlinOutput()
+    //useKotlinOutput()
+    useJavaOutput()
 
-    buildConfigField("String", "NAME", "\"CaffeinePortal\"")
-    buildConfigField("String", "VERSION_NAME", "\"1.0.0\"")
-    buildConfigField("long", "VERSION_CODE", "1")
+    buildConfigField("String", "NAME", "\"${project.name}\"")
+    buildConfigField("String", "VERSION_NAME", "\"$version\"")
+    buildConfigField("long", "VERSION_CODE", "${versionMajor * 1000 + versionMinor * 100 + versionPatch}")
 }
 
 repositories {
@@ -56,8 +66,8 @@ dependencies {
     implementation("co.casterlabs.Casterlabs:PluginSDK:8383849")
 
     //TP
-    implementation("com.christophecvb.touchportal:plugin-sdk:9.0.0-SNAPSHOT")
-    annotationProcessor("com.christophecvb.touchportal:plugin-sdk-annotations-processor:9.0.0-SNAPSHOT")
+    implementation("com.christophecvb.touchportal:plugin-sdk:9.0.0+")
+    annotationProcessor("com.christophecvb.touchportal:plugin-sdk-annotations-processor:9.0.0+")
     //TP dependency
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     //implementation("com.christophecvb.touchportal.plugin-packager:Library:8.2.1") //not found!!
@@ -76,12 +86,27 @@ application {
     mainClass.set("caffeineportal.App")
 }
 
+//replacing jar with fatJar
 tasks.named("jar") {
     enabled = false
 }
-
-tasks.named<Copy>("copyJar") {
-    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+// tasks.named<Copy>("copyJar") {
+//     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+// }
+tasks.named("build") {
+    dependsOn("fatJar")
+}
+tasks.named("distZip") {
+    //dependsOn("fatJar")
+    enabled = false
+}
+tasks.named("distTar") {
+    //dependsOn("fatJar")
+    enabled = false
+}
+tasks.named("startScripts") {
+    //dependsOn("fatJar")
+    enabled = false
 }
 
 tasks.create("fatJar", Jar::class) {

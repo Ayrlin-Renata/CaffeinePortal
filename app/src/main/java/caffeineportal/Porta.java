@@ -35,7 +35,7 @@ public class Porta extends TouchPortalPlugin implements TouchPortalPlugin.TouchP
         super(true);// true is for paralleling Actions executions
     }
 
-    public static void main(String... args) {
+    public static void start(String... args) {
         Porta.LOGGER.log(Level.INFO, "CaffeinePortal TouchPortal side main()");
         if (args != null && args.length == 1) {
             if (PluginHelper.COMMAND_START.equals(args[0])) {
