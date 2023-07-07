@@ -1,6 +1,41 @@
 # CaffeinePortal
 CasterLabs Caffenated x TouchPortal Dual Plugin 
 
+## Currently UNTESTED 1.0
+it *should* work but don't count on it! not even worthy of being called a 1.0 but i just wanna ship it
+
+## Install
+0. Shut down CasterLabs Caffeinated. 
+1. Download `caffeineportal.jar` and stick it in `%appdata%\Roaming\casterlabs-caffeinated\plugins`
+2. Download `CaffeinePortal.tpp`
+3. Open TouchPortal and click the gear icon in the upper right, then *import plug-in*.
+   a. Import `CaffeinePortal.tpp`
+   b. If it asks to trust the plugin, do so. 
+
+## Use
+CaffeinePortal makes TouchPortal Plug-in States for each CasterLabs Caffeinated event. 
+
+ - CatchupEvent
+ - ChannelPointsEvent
+ - ClearChatEvent
+ - FollowEvent
+ - KoiEvent - Any event
+ - LikeEvent
+ - PlatformMessageEvent - System messages
+ - RaidEvent
+ - RichMessageEvent - Chat and donations
+ - RoomStateEvent
+ - StreamStatusEvent
+ - SubscriptionEvent
+ - UserUpdateEvent
+ - ViewerCountEvent
+ - ViewerJoinEvent
+ - ViewerLeaveEvent
+ - ViewerListEvent
+
+The corresponding Plug-in States in TouchPortal are set briefly to "New" when these events are triggered, then set to "Waiting" instantaneously. 
+
+For more information about the plugin contact @ayrlin on the CasterLabs or TouchPortal discord. 
 
 ### Special thanks to:
 e3ndr//ItzLcyx for being a chad Casterlabs dev and helping me a lot, and im pretty sure there may have even been some backend changes to help me along.
