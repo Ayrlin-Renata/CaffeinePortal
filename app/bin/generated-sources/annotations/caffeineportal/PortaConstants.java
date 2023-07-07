@@ -26,6 +26,16 @@ public class PortaConstants {
     }
 
     public static class States {
+      public static class NewFollower {
+        public static final String ID = "caffeineportal.Porta.BaseCategory.state.newFollower";
+
+        public static final String DESC = "newFollower";
+
+        public static final String DEFAULT_VALUE = "1";
+
+        public static final String[] VALUE_CHOICES = new String[] {""};
+      }
+
       public static class NewSubscriber {
         public static final String ID = "caffeineportal.Porta.BaseCategory.state.newSubscriber";
 
@@ -40,16 +50,6 @@ public class PortaConstants {
         public static final String ID = "caffeineportal.Porta.BaseCategory.state.newRaid";
 
         public static final String DESC = "newRaid";
-
-        public static final String DEFAULT_VALUE = "1";
-
-        public static final String[] VALUE_CHOICES = new String[] {""};
-      }
-
-      public static class NewFollower {
-        public static final String ID = "caffeineportal.Porta.BaseCategory.state.newFollower";
-
-        public static final String DESC = "newFollower";
 
         public static final String DEFAULT_VALUE = "1";
 
