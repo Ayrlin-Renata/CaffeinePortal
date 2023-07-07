@@ -7,10 +7,12 @@ import xyz.e3ndr.fastloggingframework.logging.FastLogger;
 public class CafListener implements KoiEventListener {
 
     private FastLogger log;
+    private Porta porta;
 
     public CafListener(FastLogger fl) {
-        this.log = fl;
+        log = fl;
         log.debug("CafListener()");
+        porta = App.getPorta();
     }
 
     @KoiEventHandler
@@ -62,6 +64,10 @@ public class CafListener implements KoiEventListener {
     @KoiEventHandler
     public void onRichMessage(RichMessageEvent e) {
         log.debug("CafListener recieved RichMessageEvent.");
+
+        String event = PortaConstants.BaseCategory.States.StateRichMessageEvent.ID;
+        log.debug("CafListener triggerring event " + event + ".");
+        App.triggerEvent(event);
     }
 
     @KoiEventHandler

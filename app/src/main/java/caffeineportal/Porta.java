@@ -19,34 +19,86 @@ public class Porta extends TouchPortalPlugin implements TouchPortalPlugin.TouchP
         BaseCategory
     }
 
-    @State(defaultValue = "1", categoryId = "BaseCategory")
-    private String newFollower;
-    @State(defaultValue = "1", categoryId = "BaseCategory")
-    private String newSubscriber;
-    @State(defaultValue = "1", categoryId = "BaseCategory")
-    private String newRaid;
+    /////////////////////////////////////////////////////////////
+
+    @State(defaultValue = "Waiting", categoryId = "BaseCategory")
+    private String stateCatchupEvent;
+
+    @State(defaultValue = "Waiting", categoryId = "BaseCategory")
+    private String stateChannelPointsEvent;
+
+    @State(defaultValue = "Waiting", categoryId = "BaseCategory")
+    private String stateClearChatEvent;
+
+    @State(defaultValue = "Waiting", categoryId = "BaseCategory")
+    private String stateFollowEvent;
+
+    @State(defaultValue = "Waiting", categoryId = "BaseCategory")
+    private String stateKoiEvent;
+
+    @State(defaultValue = "Waiting", categoryId = "BaseCategory")
+    private String stateLikeEvent;
+
+    @State(defaultValue = "Waiting", categoryId = "BaseCategory")
+    private String statePlatformMessageEvent;
+
+    @State(defaultValue = "Waiting", categoryId = "BaseCategory")
+    private String stateRaidEvent;
+
+    @State(defaultValue = "Waiting", categoryId = "BaseCategory")
+    private String stateRichMessageEvent;
+
+    @State(defaultValue = "Waiting", categoryId = "BaseCategory")
+    private String stateRoomstateEvent;
+
+    @State(defaultValue = "Waiting", categoryId = "BaseCategory")
+    private String stateStreamStatusEvent;
+
+    @State(defaultValue = "Waiting", categoryId = "BaseCategory")
+    private String stateSubscriptionEvent;
+
+    @State(defaultValue = "Waiting", categoryId = "BaseCategory")
+    private String stateUserUpdateEvent;
+
+    @State(defaultValue = "Waiting", categoryId = "BaseCategory")
+    private String stateViewerCountEvent;
+
+    @State(defaultValue = "Waiting", categoryId = "BaseCategory")
+    private String stateViewerJoinEvent;
+
+    @State(defaultValue = "Waiting", categoryId = "BaseCategory")
+    private String stateViewerLeaveEvent;
+
+    @State(defaultValue = "Waiting", categoryId = "BaseCategory")
+    private String stateViewerListEvent;
+
+    /////////////////////////////////////////////////////////////
 
     protected Porta(boolean parallelizeActions) {
         super(parallelizeActions);
-        // TODO Auto-generated constructor stub
     }
 
     public Porta() {
         super(true);// true is for paralleling Actions executions
     }
 
-    public static void start(String... args) {
+    public static Porta start(String... args) {
+        Porta porta = null;
+
         Porta.LOGGER.log(Level.INFO, "CaffeinePortal TouchPortal side main()");
         if (args != null && args.length == 1) {
             if (PluginHelper.COMMAND_START.equals(args[0])) {
                 // Initialize your Plugin
-                Porta myTouchPortalPlugin = new Porta();
+                porta = new Porta();
                 // Initiate the connection with the Touch Portal Plugin System (will trigger an
                 // onInfo message with a confirmation from TouchPortal and the initial settings)
-                boolean connectedPairedAndListening = myTouchPortalPlugin.connectThenPairAndListen(myTouchPortalPlugin);
+                boolean connectedPairedAndListening = porta.connectThenPairAndListen(porta);
             }
         }
+        return porta;
     }
+
+    /////////////////////////////////////////////////////////////
 
     @Override
     public void onDisconnected(Exception exception) {

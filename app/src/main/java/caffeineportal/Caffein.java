@@ -19,17 +19,19 @@ public class Caffein extends CaffeinatedPlugin {
         log.debug("CaffeinePortal CasterLabs side onInit()");
         log.info("Hello Caffeinated!?");
 
+        // app init
+        App.init(this);
+
         // caffein init
         cafListener = new CafListener(log);
         addKoiListener(cafListener);
 
-        // app init
-        App.init();
     }
 
     @Override
     public void onClose() {
         log.debug("CaffeinePortal CasterLabs side onClose()");
+        log.info("Goodbye Caffeinated?!");
     }
 
     @Override

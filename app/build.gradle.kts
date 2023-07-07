@@ -133,6 +133,22 @@ tasks.named("build") {
     finalizedBy("postBuild")
 }
 
+/////////////////////////////////////////////////////
+
+// disable jar copying to .tpp
+tasks.named<Copy>("copyJar") {
+    enabled = false
+}
+
+// tasks.named<Copy>("copyJar") {
+//     duplicatesStrategy = DuplicatesStrategy.INCLUDE
+
+//     from("$buildDir/libs/caffeineportal.jar") {
+//         exclude("*")
+//         include("caffeineportal.jar")
+//     }
+// }
+
 // Java 11 Adopt...io... or something
 java {
     toolchain {

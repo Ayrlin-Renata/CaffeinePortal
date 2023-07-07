@@ -5,13 +5,34 @@ package caffeineportal;
 
 public class App {
     // TODO refactor com.ayrlin.caffeineportal
-    // TODO figure out jarring reqs.
+    private static Porta porta;
+    private static Caffein caffein;
 
     // should have just came from caffein onInit
-    public static void init() {
-        System.out.println("CaffeinePortal Main Application system out~");
-        Porta.start("start");
+    public static void init(Caffein c) {
+        App.sout("CaffeinePortal Main Application system out~");
+        porta = Porta.start("start");
+        caffein = c;
+    }
 
+    public static void triggerEvent(String id) {
+        App.sout("Triggering TP event: " + id);
+        porta.sendStateUpdate(id, "New");
+        porta.sendStateUpdate(id, "Waiting");
+    }
+
+    public static void sout(String s) {
+        System.out.println("CaffeinePortal: " + s);
+    }
+
+    ///////////////////////////////////////////
+
+    public static Caffein getCaffein() {
+        return caffein;
+    }
+
+    public static Porta getPorta() {
+        return porta;
     }
 
 }
