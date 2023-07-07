@@ -36,7 +36,11 @@ CaffeinePortal makes TouchPortal Plug-in States for each CasterLabs Caffeinated 
 
 The corresponding Plug-in States in TouchPortal are set briefly to "New" when these events are triggered, then set to "Waiting" instantaneously. 
 
-For more information about the plugin contact @ayrlin on the CasterLabs or TouchPortal discord. 
+## Help
+
+If you want to know more about specifically when the CL events are triggered, probably ask in #sdk in the CL discord. 
+
+For more information about the plugin contact @ayrlin on the CasterLabs or TouchPortal discord.
 
 ## Special thanks to:
 e3ndr//ItzLcyx for being a chad Casterlabs dev and helping me a lot, and im pretty sure there may have even been some backend changes to help me along.
