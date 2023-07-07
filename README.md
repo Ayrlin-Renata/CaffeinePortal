@@ -9,8 +9,9 @@ it *should* work but don't count on it! not even worthy of being called a 1.0 bu
 1. Download `caffeineportal.jar` and stick it in `%appdata%\Roaming\casterlabs-caffeinated\plugins`
 2. Download `CaffeinePortal.tpp`
 3. Open TouchPortal and click the gear icon in the upper right, then *import plug-in*.
-   a. Import `CaffeinePortal.tpp`
-   b. If it asks to trust the plugin, do so. 
+4. Import `CaffeinePortal.tpp`
+5. If it asks to trust the plugin, do so.
+6. Start up CasterLabs Caffeinated.
 
 ## Use
 CaffeinePortal makes TouchPortal Plug-in States for each CasterLabs Caffeinated event. 
