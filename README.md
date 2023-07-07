@@ -38,7 +38,7 @@ The corresponding Plug-in States in TouchPortal are set briefly to "New" when th
 
 For more information about the plugin contact @ayrlin on the CasterLabs or TouchPortal discord. 
 
-### Special thanks to:
+## Special thanks to:
 e3ndr//ItzLcyx for being a chad Casterlabs dev and helping me a lot, and im pretty sure there may have even been some backend changes to help me along.
 
 ChristopheCVB and Pjiesco for helping me sort out my ludicrous problems on the TouchPortal discord.
