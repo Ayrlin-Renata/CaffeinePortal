@@ -16,15 +16,6 @@ public class CafListener implements KoiEventListener {
     }
 
     @KoiEventHandler
-    public void onCatchup(CatchupEvent e) {
-        log.debug("CafListener recieved CatchupEvent.");
-
-        String event = PortaConstants.BaseCategory.States.StateCatchupEvent.ID;
-        log.debug("CafListener triggerring event " + event + ".");
-        App.triggerEvent(event);
-    }
-
-    @KoiEventHandler
     public void onChannelPoints(ChannelPointsEvent e) {
         log.debug("CafListener recieved ChannelPointsEvent.");
 
@@ -33,6 +24,8 @@ public class CafListener implements KoiEventListener {
         App.triggerEvent(event);
     }
 
+    // "clear chat happens when you clear the chat OR when a user gets banned and
+    // their messages get pruned"
     @KoiEventHandler
     public void onClearChat(ClearChatEvent e) {
         log.debug("CafListener recieved ClearChatEvent.");
@@ -93,6 +86,7 @@ public class CafListener implements KoiEventListener {
         App.triggerEvent(event);
     }
 
+    // for messages and also donations
     @KoiEventHandler
     public void onRichMessage(RichMessageEvent e) {
         log.debug("CafListener recieved RichMessageEvent.");
@@ -102,6 +96,7 @@ public class CafListener implements KoiEventListener {
         App.triggerEvent(event);
     }
 
+    // "room state is for things like follower only mode, emote only, etc"
     @KoiEventHandler
     public void onRoomstate(RoomstateEvent e) {
         log.debug("CafListener recieved RoomstateEvent.");
@@ -129,6 +124,7 @@ public class CafListener implements KoiEventListener {
         App.triggerEvent(event);
     }
 
+    // gets called a bunch randomly
     @KoiEventHandler
     public void onUserUpdate(UserUpdateEvent e) {
         log.debug("CafListener recieved UserUpdateEvent.");

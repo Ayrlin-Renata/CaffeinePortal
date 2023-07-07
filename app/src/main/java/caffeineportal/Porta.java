@@ -22,9 +22,6 @@ public class Porta extends TouchPortalPlugin implements TouchPortalPlugin.TouchP
     /////////////////////////////////////////////////////////////
 
     @State(defaultValue = "Waiting", categoryId = "BaseCategory")
-    private String stateCatchupEvent;
-
-    @State(defaultValue = "Waiting", categoryId = "BaseCategory")
     private String stateChannelPointsEvent;
 
     @State(defaultValue = "Waiting", categoryId = "BaseCategory")
